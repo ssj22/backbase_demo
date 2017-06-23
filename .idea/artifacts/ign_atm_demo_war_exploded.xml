@@ -1,0 +1,56 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="ign-atm-demo:war exploded">
+    <output-path>$PROJECT_DIR$/target/demo</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ign-atm-demo" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.apache.camel:camel-spring-security:2.18.4" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:4.0.4.RELEASE" />
+          <element id="library" level="project" name="Maven: com.sun.xml.bind:jaxb-core:2.2.11" />
+          <element id="library" level="project" name="Maven: com.sun.xml.bind:jaxb-impl:2.2.11" />
+          <element id="library" level="project" name="Maven: org.json:json:20160810" />
+          <element id="library" level="project" name="Maven: org.apache.camel:camel-jackson:2.18.4" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.8.3" />
+          <element id="library" level="project" name="Maven: org.apache.camel:camel-spring:2.18.4" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.apache.camel:camel-spring-javaconfig:2.18.4" />
+          <element id="library" level="project" name="Maven: org.apache.servicemix.bundles:org.apache.servicemix.bundles.cglib:3.2.4_1" />
+          <element id="library" level="project" name="Maven: org.apache.camel:camel-restlet:2.18.4" />
+          <element id="library" level="project" name="Maven: org.restlet.jee:org.restlet:2.3.6" />
+          <element id="library" level="project" name="Maven: org.restlet.jee:org.restlet.ext.httpclient:2.3.6" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.5" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient:4.3.2" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore:4.3.1" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpmime:4.3" />
+          <element id="library" level="project" name="Maven: net.jcip:jcip-annotations:1.0" />
+          <element id="library" level="project" name="Maven: org.apache.james:apache-mime4j-core:0.7.2" />
+          <element id="library" level="project" name="Maven: org.apache.camel:camel-core:2.18.4" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.22" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.7.7" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.7.0" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.7.7" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:4.0.4.RELEASE" />
+          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:4.0.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.2" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/demo/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="ign-atm-demo/web/Web" />
+    </root>
+  </artifact>
+</component>
