@@ -2,14 +2,50 @@
 <head lang="en">
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.11/ng-grid.css" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <script type="text/javascript" src="jquery.js"></script>
-    <script type="text/javascript" src="angular.js"></script>
-    <script type="text/javascript" src="ng-grid.js"></script>
-    <script type="text/javascript" src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.11/ng-grid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-base64/2.0.5/angular-base64.min.js"></script>
+
+    <style>
+        .gridStyle {
+            border: 1px solid rgb(212,212,212);
+            width: 1000px;
+            height: 700px;
+        }
+    </style>
 </head>
 <body ng-controller="MyCtrl">
-<div class="gridStyle" ng-grid="gridOptions">
+<h1 align="center">List of ING ATMs in different dutch cities</h1>
+<div align="center" class="gridStyle" ng-grid="gridOptions">
 </div>
-</body>
+<script type="text/javascript">
+    var app = angular.module('myApp', ['ngGrid', 'base64']);
+    app.controller('MyCtrl', function($scope, $http, $base64) {
+        var auth = $base64.encode("user:password"),
+            headers = {"Authorization": "Basic " + auth};
+        $http.get('http://localhost:8089/demo/api/atms', {headers: headers})
+            .then(function(response) {
+            $scope.myData = response.data;
+        });
+
+        $scope.gridOptions = {
+            data: 'myData',
+            columnDefs: [
+                {field:'address.city', displayName:'City'},
+                {field:'address.street', displayName:'Street'},
+                {field:'address.housenumber', displayName:'House No.'},
+                {field:'address.postalcode', displayName:'Postal Code'},
+                {field:'address.geoLocation.lat', displayName:'Lattitude'},
+                {field:'address.geoLocation.lng', displayName:'Longitude'},
+                {field:'distance', displayName:'Distance'},
+                {field:'type', displayName:'Type'}
+            ],
+            jqueryUIDraggable: true,
+            showGroupPanel: true,
+            enableColumnResize: true
+        };
+    });
+</script>
+<body>
 </html>
