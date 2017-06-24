@@ -31,7 +31,6 @@ public class CamelConfig extends CamelConfiguration {
     @Override
     protected void setupCamelContext(CamelContext camelContext) throws Exception {
         //Setting up Camel Context
-        System.out.println("Camel Context");
         super.setupCamelContext(camelContext);
     }
 }

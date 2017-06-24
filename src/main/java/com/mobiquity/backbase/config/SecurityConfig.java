@@ -28,6 +28,5 @@ import java.util.List;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * This class is the Java config for Spring security to interact with the Web Application
-     * All URLs are encapsulated by the
      */
 }

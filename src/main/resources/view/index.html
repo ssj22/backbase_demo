@@ -10,8 +10,9 @@
     <style>
         .gridStyle {
             border: 1px solid rgb(212,212,212);
-            width: 1000px;
+            width: 90%;
             height: 700px;
+            margin-left: 40px;
         }
     </style>
 </head>
@@ -39,7 +40,8 @@
                 {field:'address.geoLocation.lat', displayName:'Lattitude'},
                 {field:'address.geoLocation.lng', displayName:'Longitude'},
                 {field:'distance', displayName:'Distance'},
-                {field:'type', displayName:'Type'}
+                {field:'type', displayName:'Type'},
+                {field:'createdAt', displayName:'Create Date', cellFilter: 'date:\'MM/dd/yyyy HH:MM:ss\''}
             ],
             jqueryUIDraggable: true,
             showGroupPanel: true,

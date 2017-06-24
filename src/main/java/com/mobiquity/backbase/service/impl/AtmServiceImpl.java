@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -33,7 +34,8 @@ public class AtmServiceImpl implements AtmService {
     }
 
     @Override
-    public void saveATM(Atm atm) {
+    public Atm saveATM(Atm atm) {
+        atm.setCreatedAt(new Date());
         String city = atm.getAddress().getCity();
         if (atmDataStore.getAtmMap().containsKey(city)) {
             List<Atm> atms = atmDataStore.getAtmMap().get(city);
@@ -43,5 +45,7 @@ public class AtmServiceImpl implements AtmService {
             atms.add(atm);
             atmDataStore.getAtmMap().put(city, atms);
         }
+
+        return atm;
     }
 }

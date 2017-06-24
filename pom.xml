@@ -12,9 +12,15 @@
     <java-version>1.8</java-version>
     <jackson.version>2.7.7</jackson.version>
     <springframework.version>4.3.7.RELEASE</springframework.version>
+    <spring.security.version>4.0.4.RELEASE</spring.security.version>
+    <camel.version>2.18.4</camel.version>
+    <java.servlet.api>3.1.0</java.servlet.api>
   </properties>
 
   <dependencies>
+
+    <!-- Testing related dependencies -->
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -33,28 +39,27 @@
       <version>1.3</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <version>3.1.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-spring-security</artifactId>
-      <version>2.18.4</version>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/org.json/json -->
+
+    <!-- JSON dependency -->
+
     <dependency>
       <groupId>org.json</groupId>
       <artifactId>json</artifactId>
       <version>20160810</version>
+    </dependency>
+
+    <!-- Camel framework dependencies -->
+
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-spring-security</artifactId>
+      <version>2.18.4</version>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-jackson</artifactId>
       <version>2.18.4</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-spring -->
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-spring</artifactId>
@@ -70,45 +75,50 @@
       <artifactId>camel-restlet</artifactId>
       <version>2.18.4</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-core -->
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-core</artifactId>
       <version>2.18.4</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-test-spring -->
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-test-spring</artifactId>
       <version>2.18.4</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>${jackson.version}</version>
-    </dependency>
+
+    <!-- Javax Servlet API -->
+
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
-      <version>3.1.0</version>
+      <version>${java.servlet.api}</version>
       <scope>provided</scope>
     </dependency>
+
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-web</artifactId>
+      <version>${spring.security.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-web</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-config</artifactId>
+      <version>${spring.security.version}</version>
+    </dependency>
+
+    <!-- Spring framework dependencies -->
 
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
       <version>${springframework.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.security</groupId>
-      <artifactId>spring-security-web</artifactId>
-      <version>4.0.4.RELEASE</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.security</groupId>
-      <artifactId>spring-security-config</artifactId>
-      <version>4.0.4.RELEASE</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
@@ -121,15 +131,24 @@
       <version>${springframework.version}</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>commons-logging</groupId>
-      <artifactId>commons-logging</artifactId>
-      <version>1.2</version>
-    </dependency>
+
+    <!-- Jackson dependencies -->
+
     <dependency>
       <groupId>org.codehaus.jackson</groupId>
       <artifactId>jackson-mapper-asl</artifactId>
       <version>1.9.13</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.2</version>
     </dependency>
   </dependencies>
   <build>
@@ -158,6 +177,11 @@
           <groupId>org.eclipse.jetty</groupId>
           <artifactId>jetty-maven-plugin</artifactId>
           <version>9.4.6.v20170531</version>
+          <configuration>
+            <webApp>
+              <contextPath>/demo</contextPath>
+            </webApp>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>

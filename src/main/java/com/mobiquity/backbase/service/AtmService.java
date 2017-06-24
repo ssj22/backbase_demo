@@ -27,5 +27,5 @@ public interface AtmService {
      * This API persists an ATM object
      * @return Atm object
      */
-    void saveATM(Atm atm);
+    Atm saveATM(Atm atm);
 }

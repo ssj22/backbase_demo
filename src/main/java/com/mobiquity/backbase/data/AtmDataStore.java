@@ -17,10 +17,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by sjoshi on 6/22/17.
@@ -53,11 +50,12 @@ public class AtmDataStore {
             stringBuilder.replace(0,5, "");
 
             JSONArray atmRoot = new JSONArray(stringBuilder.toString());
-
+            Date now = new Date(System.currentTimeMillis());
             for (int i=0; i < atmRoot.length(); i++) {
                 JSONObject atmJson = atmRoot.getJSONObject(i);
                 ObjectMapper mapper = new ObjectMapper();
                 Atm atm = mapper.readValue(atmJson.toString(), Atm.class);
+                atm.setCreatedAt(now);
 
                 String city = atm.getAddress().getCity();
                 if (atmMap.containsKey(city)) {

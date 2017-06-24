@@ -2,3 +2,5 @@
 *.class
 *.iml
 /.idea/*
+dep.txt
+.DS_Store

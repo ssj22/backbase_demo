@@ -65,7 +65,7 @@ public class AppRouteBuilder extends RouteBuilder {
          * This route is called to create an ATM
          */
         rest("/demo/api/atms")
-                .post().type(Atm.class)
+                .post().type(Atm.class).produces("application/json")
                 .route().process(authProcessor).policy("admin")
                 .bean(atmService, "saveATM");
 
@@ -76,7 +76,9 @@ public class AppRouteBuilder extends RouteBuilder {
                 .param().name("id").type(RestParamType.path).description("The id of the user to get").endParam()
                 .route().process(authProcessor).policy("user").bean(atmService, "findATMsByCity(${header.city})");
 
-
+        /**
+         * The default route that redirects to the index page where user can view the list of all ATMs
+         */
         rest("/").get().produces("text/html").route().transform().simple("resource:classpath:view/index.html");
     }
 

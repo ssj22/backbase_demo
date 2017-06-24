@@ -3,6 +3,7 @@ package com.mobiquity.backbase.model;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by sjoshi on 6/23/17.
@@ -12,6 +13,7 @@ public class Atm implements Serializable {
     private Address address;
     private String distance;
     private String type;
+    private Date createdAt;
 
     public Address getAddress() {
         return address;
@@ -35,6 +37,14 @@ public class Atm implements Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
     static public class Address {
